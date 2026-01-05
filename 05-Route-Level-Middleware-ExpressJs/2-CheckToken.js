@@ -1,10 +1,10 @@
-// Store the correct token value
-let token = "12345";
+// Read TOKEN value from environment variables
+let token = process.env.TOKEN;
 
 // Middleware function to check token
 const checktoken = (req, res, next) => {
 
-  // Check if token is missing or empty in query
+  // Check if token is missing or empty in query string
   if (req.query.token == "" || req.query.token == undefined) {
     return res.send({
       status: 0,
@@ -12,7 +12,7 @@ const checktoken = (req, res, next) => {
     });
   }
 
-  // Check if token value is incorrect
+  // Check if the provided token does not match the correct token
   if (req.query.token !== token) {
     return res.send({
       status: 0,
@@ -20,7 +20,7 @@ const checktoken = (req, res, next) => {
     });
   }
 
-  // If token is correct, move to next function (route)
+  // Token is valid → allow request to go to route
   next();
 };
 

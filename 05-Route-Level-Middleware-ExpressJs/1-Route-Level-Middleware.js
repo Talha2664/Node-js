@@ -1,17 +1,20 @@
 // Import express framework
 const express = require("express");
 
-// Import checktoken middleware from CheckToken.js file
+// Load environment variables from .env file
+require("dotenv").config();
+
+// Import checktoken middleware from another file
 const { checktoken } = require("./2-CheckToken.js");
 
-// Create express app
+// Create express application
 const app = express();
 
-// Route with middleware
-// checktoken will run BEFORE this route function
+// Define a route with middleware
+// checktoken will execute FIRST before the route logic
 app.get("/news", checktoken, (req, res) => {
 
-  // Send response if token is valid
+  // This response is sent ONLY if token is valid
   res.send({
     status: 1,
     name: "Talha",
@@ -20,7 +23,11 @@ app.get("/news", checktoken, (req, res) => {
   });
 });
 
-// Start server on port 8000
-app.listen(8000, () => {
-  console.log("Server Run Successfully");
+// Get PORT value from environment variables
+// If PORT is not defined, use 5000 as default
+const PORT = process.env.PORT || 5000;
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server Run Successfully on ${PORT} port`);
 });
