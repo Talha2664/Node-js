@@ -34,4 +34,9 @@ Option 2 (Global – Optional)
 Command : npm install -g nodemon
 ```
 
+Install Express:
+```
+npm install express
+```
+
 

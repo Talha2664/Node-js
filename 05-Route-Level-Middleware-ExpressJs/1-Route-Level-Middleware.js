@@ -2,7 +2,7 @@
 const express = require("express");
 
 // Import checktoken middleware from CheckToken.js file
-const { checktoken } = require("./CheckToken.js");
+const { checktoken } = require("./2-CheckToken.js");
 
 // Create express app
 const app = express();
