@@ -47,3 +47,10 @@ Data hidden in body
 Can be large and secure
 Examples: signup, login, add product
 ```
+
+```
+Property	  Where Used (HTTP Method)	     Purpose / Example
+req.query	  GET, POST (optional)	         Optional params, filtering, search, pagination
+req.params	  GET, POST, PUT, PATCH, DELETE	 Identify specific resource (/products/:id)
+req.body	  POST, PUT, PATCH	             Data sent to server for create or update
+```

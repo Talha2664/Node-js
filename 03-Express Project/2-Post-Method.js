@@ -19,16 +19,18 @@ app.use(express.json());
 // =========================
 app.post("/login", (req, res) => {
   // Read username and password from req.body
-  const userName = "talha123";
-  const pass = "123";
+  const userName = "talha123"
+  const pass = "123"
   const { username, password } = req.body;
 
   // Send a simple response message
-  if (username === userName && password === pass) {
+if (username === userName && password === pass) {
     res.send("Login successful");
-  } else {
+  }
+  else {
     res.send("Invalid username or password");
   }
+
 });
 
 // =========================
